@@ -8,4 +8,5 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 @RepositoryRestResource
 @CrossOrigin("*")
 public interface PaysRepository  extends JpaRepository<Pays, Long> {
+    boolean existsByName(String nom);
 }

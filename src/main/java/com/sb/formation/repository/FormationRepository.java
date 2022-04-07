@@ -8,4 +8,5 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 @RepositoryRestResource
 @CrossOrigin("*")
 public interface FormationRepository  extends JpaRepository<Formation, Long> {
+    boolean existsByTitre(String titre);
 }

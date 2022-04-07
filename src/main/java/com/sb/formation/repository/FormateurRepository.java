@@ -8,6 +8,5 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 @RepositoryRestResource
 @CrossOrigin("*")
 public interface FormateurRepository extends JpaRepository<Formateur, Long> {
-
     boolean existsByEmail(String email);
 }
