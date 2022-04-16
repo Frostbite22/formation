@@ -1,11 +1,10 @@
 package com.sb.formation.controller.user;
 
-import com.sb.formation.entities.Participant;
 import com.sb.formation.entities.Session;
 import com.sb.formation.reponses.MessageResponse;
-import com.sb.formation.service.ParticipantServiceImpl;
 import com.sb.formation.service.SessionServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,6 +12,7 @@ import java.util.List;
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/session")
+@PreAuthorize("hasRole('ROLE_USER')")
 public class SessionController {
     @Autowired
     private SessionServiceImpl sessionServiceImpl;

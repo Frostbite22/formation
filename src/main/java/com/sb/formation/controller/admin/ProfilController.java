@@ -4,6 +4,7 @@ import com.sb.formation.entities.Profil;
 import com.sb.formation.reponses.MessageResponse;
 import com.sb.formation.service.ProfilServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,8 +12,8 @@ import java.util.List;
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/profil")
+@PreAuthorize("hasRole('ROLE_ADMIN')")
 public class ProfilController {
-
     @Autowired
     private ProfilServiceImpl profilService;
 

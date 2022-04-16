@@ -4,6 +4,7 @@ import com.sb.formation.entities.Pays;
 import com.sb.formation.reponses.MessageResponse;
 import com.sb.formation.service.PaysServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,6 +12,7 @@ import java.util.List;
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/pays")
+@PreAuthorize("hasRole('ROLE_ADMIN')")
 public class PaysController {
     @Autowired
     private PaysServiceImpl paysServiceImpl;

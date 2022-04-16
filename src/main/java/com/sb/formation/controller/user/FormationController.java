@@ -4,6 +4,7 @@ import com.sb.formation.entities.Formation;
 import com.sb.formation.reponses.MessageResponse;
 import com.sb.formation.service.FormationServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,6 +12,7 @@ import java.util.List;
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/formation")
+@PreAuthorize("hasRole('ROLE_USER')")
 public class FormationController {
     @Autowired
     private FormationServiceImpl formationService;

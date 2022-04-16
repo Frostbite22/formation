@@ -4,17 +4,20 @@ import com.sb.formation.entities.Formateur;
 import com.sb.formation.reponses.MessageResponse;
 import com.sb.formation.service.FormateurServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @RestController
-@CrossOrigin("*")
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping("/formateur")
 public class FormateurController {
     @Autowired
     private FormateurServiceImpl formateurService;
 
     @GetMapping
+    @PreAuthorize("hasRole('ROLE_USER')")
     public List<Formateur> findAll() {
         return formateurService.findAll();
     }

@@ -25,4 +25,9 @@ public class Utilisateur {
 	private String Password;
 	@ManyToMany
 	private Collection<Role> roles;
+
+	public Utilisateur(String login, String password) {
+		this.login = login;
+		Password = password;
+	}
 }
