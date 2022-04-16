@@ -1,6 +1,7 @@
 package com.sb.formation.entities;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
@@ -14,6 +15,8 @@ import java.util.Collection;
 public class Organisme {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	@Column(length=20)
+	@NotNull
 	private String libelle;
 	@OneToMany(mappedBy="organisme")
 	@JsonProperty(access= JsonProperty.Access.WRITE_ONLY)

@@ -1,8 +1,8 @@
 package com.sb.formation.service;
 
-import com.sb.formation.entities.Profile;
+import com.sb.formation.entities.Profil;
 import com.sb.formation.reponses.MessageResponse;
-import com.sb.formation.repository.ProfileRepository;
+import com.sb.formation.repository.ProfilRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -10,54 +10,54 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-public class ProfileServiceImpl implements ProfileService{
+public class ProfilServiceImpl implements ProfilService {
     @Autowired
-    ProfileRepository profileRepository;
+    ProfilRepository profilRepository;
 
     @Transactional
     @Override
-    public MessageResponse save(Profile profile) {
-        boolean existe = profileRepository.existsByLibelle(profile.getLibelle());
+    public MessageResponse save(Profil profil) {
+        boolean existe = profilRepository.existsByLibelle(profil.getLibelle());
         if (existe){
             return new MessageResponse(false,"Echec !","Cette libelle existe déja !");
         }
-        profileRepository.save(profile);
+        profilRepository.save(profil);
         return new MessageResponse(true,"Succès","Opération réalisée avec succès.");
     }
 
     @Transactional
     @Override
-    public MessageResponse update(Profile profile) {
-        boolean existe = profileRepository.existsById(profile.getId());
+    public MessageResponse update(Profil profil) {
+        boolean existe = profilRepository.existsById(profil.getId());
         if (!existe){
-            boolean existe1 = profileRepository.existsByLibelle(profile.getLibelle());
+            boolean existe1 = profilRepository.existsByLibelle(profil.getLibelle());
             return new MessageResponse(false,"Echec !","Cette libelle existe déja !");
         }
-        profileRepository.save(profile);
+        profilRepository.save(profil);
         return new MessageResponse(true,"Succès","Opération réalisée avec succès.");
     }
 
     @Transactional
     @Override
     public MessageResponse delete(Long id) {
-        Profile profile = findById(id);
-        if (profile==null){
+        Profil profil = findById(id);
+        if (profil==null){
             return new MessageResponse(false,"Echec","Cet enregistrement n'existe pas !");
         }
-        profileRepository.delete(profile);
+        profilRepository.delete(profil);
         return new MessageResponse(true,"Succès", "L'enregistrement à été supprimé avec succès.");
     }
 
     @Transactional
     @Override
-    public List<Profile> findAll() {
-        return profileRepository.findAll();
+    public List<Profil> findAll() {
+        return profilRepository.findAll();
     }
 
     @Transactional
     @Override
-    public Profile findById(Long id) {
-        Profile profile = profileRepository.findById(id).orElse(null);
-        return profile;
+    public Profil findById(Long id) {
+        Profil profil = profilRepository.findById(id).orElse(null);
+        return profil;
     }
 }

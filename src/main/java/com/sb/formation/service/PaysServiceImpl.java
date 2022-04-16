@@ -17,7 +17,7 @@ public class PaysServiceImpl implements PaysService{
     @Transactional
     @Override
     public MessageResponse save(Pays pays) {
-        boolean existe = paysRepository.existsByName(pays.getNom());
+        boolean existe = paysRepository.existsByNom(pays.getNom());
         if (existe){
             return new MessageResponse(false,"Echec !","Cette nom existe déja !");
         }
@@ -30,7 +30,7 @@ public class PaysServiceImpl implements PaysService{
     public MessageResponse update(Pays pays) {
         boolean existe = paysRepository.existsById(pays.getId());
         if (!existe){
-            boolean existe1 = paysRepository.existsByName(pays.getNom());
+            boolean existe1 = paysRepository.existsByNom(pays.getNom());
             return new MessageResponse(false,"Echec !","Cette pays existe déja !");
         }
         paysRepository.save(pays);

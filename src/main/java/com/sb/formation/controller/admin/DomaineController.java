@@ -18,7 +18,6 @@ public class DomaineController {
     @Autowired
     private DomaineServiceImpl domaineService;
 
-    //@RequestMapping(value="/domaine", method=RequestMethod.GET)
     @GetMapping
     public List<Domaine> findAll() {
         return domaineService.findAll();

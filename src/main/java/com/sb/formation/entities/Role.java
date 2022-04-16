@@ -1,6 +1,7 @@
 package com.sb.formation.entities;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,5 +16,6 @@ public class Role {
 	private Long id;
 	@Enumerated(EnumType.STRING)
 	@Column(length=20)
+	@NotNull
 	private ERole nom;
 }

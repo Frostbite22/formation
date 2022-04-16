@@ -1,6 +1,7 @@
 package com.sb.formation.entities;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
@@ -14,6 +15,8 @@ import java.util.Collection;
 public class Pays {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	@Column(length=75)
+	@NotNull
 	private String nom;
 	@OneToMany(mappedBy="pays")
 	@JsonProperty(access= JsonProperty.Access.WRITE_ONLY)
