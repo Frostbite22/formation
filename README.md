@@ -1,5 +1,7 @@
 # formation
 # How to contribute to this repository 
+Add remote upstream <br>
+```git remote add upstream https://github.com/jawherr/formation.git```
 1-Pull changes from the original repository <br>
 ```git pull``` <br>
 2-Make a new branch and checkout to that branch <br>
