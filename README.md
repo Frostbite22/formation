@@ -3,7 +3,7 @@
 1-Pull changes from the original repository <br>
 ```git pull``` <br>
 2-Make a new branch and checkout to that branch <br>
-```git checkout -b newBranch```
+```git checkout -b newBranch```<br>
 3-Make your changes <br> 
 ```git add . ```<br>
 ```git commit -m "message"```<br>
