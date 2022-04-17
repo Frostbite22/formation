@@ -13,4 +13,4 @@ Add remote upstream <br>
 4-Update your local repository <br>
 ```git fetch upstream```<br>
 5-Merge changes made in the original repo to your main local branch<br>
-```git merge upstream/main```<br>
+```git merge upstream/main```<br> <br>

@@ -17,14 +17,22 @@ public class UtilisateurServiceImpl implements UtilisateurService{
     @Transactional
     @Override
     public MessageResponse save(Utilisateur utilisateur) {
+        boolean existe = utilisateurRepository.existsByLogin(utilisateur.getLogin());
+        if (existe){
+            return new MessageResponse(false,"Echec !","Cette utilisateur existe déja !");
+        }
         utilisateurRepository.save(utilisateur);
         return new MessageResponse(true,"Succès","Opération réalisée avec succès.");
     }
 
     @Transactional
     @Override
-    public MessageResponse update(Utilisateur utilisateur) {
+        public MessageResponse update(Utilisateur utilisateur) {
         boolean existe = utilisateurRepository.existsById(utilisateur.getCode());
+        if (!existe){
+            boolean existe1 = utilisateurRepository.existsByLogin(utilisateur.getLogin());
+            return new MessageResponse(false,"Echec !","Cette utilisateur existe déja !");
+        }
         utilisateurRepository.save(utilisateur);
         return new MessageResponse(true,"Succès","Opération réalisée avec succès.");
     }

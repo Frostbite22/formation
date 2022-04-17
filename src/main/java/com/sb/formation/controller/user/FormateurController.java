@@ -12,12 +12,12 @@ import java.util.List;
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping("/formateur")
+@PreAuthorize("hasRole('ROLE_USER')")
 public class FormateurController {
     @Autowired
     private FormateurServiceImpl formateurService;
 
     @GetMapping
-    @PreAuthorize("hasRole('ROLE_USER')")
     public List<Formateur> findAll() {
         return formateurService.findAll();
     }
