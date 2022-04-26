@@ -12,6 +12,9 @@ import com.sb.formation.security.jwt.JwtUtils;
 import com.sb.formation.service.UtilisateurDetailsImpl;
 
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -44,8 +47,12 @@ public class AuthController {
     PasswordEncoder encoder;
     @Autowired
     JwtUtils jwtUtils;
-
+    
     @PostMapping("/signin")
+    @ApiOperation(value="Authentifier un utilisateur", notes="login user")
+    @ApiResponses(value = {
+    		@ApiResponse(code = 200, message="utilisateur authentifié")
+    })
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
 
         Authentication authentication = authenticationManager.authenticate(
@@ -67,6 +74,10 @@ public class AuthController {
 
 
     @PostMapping("/signup")
+    @ApiOperation(value="enregistrer un utilisateur", notes="register user")
+    @ApiResponses(value = {
+    		@ApiResponse(code = 200, message="utilisateur enregistré")
+    })
     public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest signUpRequest) {
         if (utilisateurRepository.existsByLogin(signUpRequest.getLogin())) {
             return ResponseEntity
