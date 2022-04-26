@@ -3,6 +3,9 @@ package com.sb.formation.controller.admin;
 import com.sb.formation.entities.Domaine;
 import com.sb.formation.reponses.MessageResponse;
 import com.sb.formation.service.DomaineServiceImpl;
+
+import io.swagger.annotations.Api;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +14,7 @@ import java.util.List;
 
 //@Controller
 //@ResponseBody
+@Api
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/domaine")

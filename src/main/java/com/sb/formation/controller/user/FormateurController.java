@@ -3,12 +3,16 @@ package com.sb.formation.controller.user;
 import com.sb.formation.entities.Formateur;
 import com.sb.formation.reponses.MessageResponse;
 import com.sb.formation.service.FormateurServiceImpl;
+
+import io.swagger.annotations.Api;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Api
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping("/formateur")

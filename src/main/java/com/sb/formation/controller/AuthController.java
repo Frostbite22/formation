@@ -10,6 +10,9 @@ import com.sb.formation.request.LoginRequest;
 import com.sb.formation.request.SignupRequest;
 import com.sb.formation.security.jwt.JwtUtils;
 import com.sb.formation.service.UtilisateurDetailsImpl;
+
+import io.swagger.annotations.Api;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -26,6 +29,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+@Api
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/auth")
