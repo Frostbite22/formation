@@ -52,7 +52,6 @@ public class FormationController {
     }
 
     @GetMapping("/{code}")
-    @PutMapping
     @ApiOperation(value="Trouver une formation par id", notes="trouver par id")
     @ApiResponses(value = {
     		@ApiResponse(code = 200, message="Formation trouvée")
@@ -61,7 +60,7 @@ public class FormationController {
         return formationService.findById(id);
     }
     
-    @PutMapping
+
     @ApiOperation(value="Supprimer une formation par id", notes="supression formation")
     @ApiResponses(value = {
     		@ApiResponse(code = 200, message="Formation supprimée")
