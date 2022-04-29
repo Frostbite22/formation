@@ -8,6 +8,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import io.swagger.annotations.Authorization;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -25,7 +26,7 @@ public class FormateurController {
     private FormateurServiceImpl formateurService;
 
     @GetMapping
-    @ApiOperation(value="Trouver tous les formateurs", notes="find formateur")
+    @ApiOperation(value="Trouver tous les formateurs", notes="find formateur",authorizations = {@Authorization(value="jwtToken") })
     @ApiResponses(value = {
     		@ApiResponse(code = 200, message="formateur trouvé")
     })

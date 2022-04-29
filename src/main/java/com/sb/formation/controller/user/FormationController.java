@@ -8,6 +8,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import io.swagger.annotations.Authorization;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -61,7 +62,7 @@ public class FormationController {
     }
     
 
-    @ApiOperation(value="Supprimer une formation par id", notes="supression formation")
+    @ApiOperation(value="Supprimer une formation par id", notes="supression formation",authorizations = {@Authorization(value="jwtToken") })
     @ApiResponses(value = {
     		@ApiResponse(code = 200, message="Formation supprimée")
     })

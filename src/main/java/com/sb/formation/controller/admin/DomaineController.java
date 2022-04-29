@@ -8,6 +8,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import io.swagger.annotations.Authorization ;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -37,7 +38,7 @@ public class DomaineController {
     }
 
     @PostMapping
-    @ApiOperation(value="Enregister un domaine", notes="save domaine")
+    @ApiOperation(value="Enregister un domaine", notes="save domaine",authorizations = {@Authorization(value="jwtToken") })
     @ApiResponses(value = {
     		@ApiResponse(code = 200, message="domaine enregistré")
     })
