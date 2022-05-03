@@ -20,7 +20,6 @@ import java.util.List;
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/formation")
-@PreAuthorize("hasRole('ROLE_USER')")
 public class FormationController {
     @Autowired
     private FormationServiceImpl formationService;
@@ -34,6 +33,7 @@ public class FormationController {
         return formationService.findAll();
     }
 
+    @PreAuthorize("hasRole('ROLE_USER')")
     @PostMapping
     @ApiOperation(value="enregistrer une formation", notes="save formation")
     @ApiResponses(value = {
@@ -43,6 +43,7 @@ public class FormationController {
         return formationService.save(formation);
     }
 
+    @PreAuthorize("hasRole('ROLE_USER')")
     @PutMapping
     @ApiOperation(value="Mise à jour formation", notes="update formation")
     @ApiResponses(value = {
@@ -52,6 +53,7 @@ public class FormationController {
         return formationService.update(formation);
     }
 
+    @PreAuthorize("hasRole('ROLE_USER')")
     @GetMapping("/{code}")
     @ApiOperation(value="Trouver une formation par id", notes="trouver par id")
     @ApiResponses(value = {
@@ -61,7 +63,7 @@ public class FormationController {
         return formationService.findById(id);
     }
     
-
+    @PreAuthorize("hasRole('ROLE_USER')")
     @ApiOperation(value="Supprimer une formation par id", notes="supression formation",authorizations = {@Authorization(value="jwtToken") })
     @ApiResponses(value = {
     		@ApiResponse(code = 200, message="Formation supprimée")
