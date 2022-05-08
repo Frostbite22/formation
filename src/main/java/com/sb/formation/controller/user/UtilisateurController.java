@@ -60,7 +60,7 @@ public class UtilisateurController {
         return utilisateurServiceImpl.findByCode(code);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/{code}")
     @ApiOperation(value="supprimer un utilisateur", notes="supprimer utilisateur")
     @ApiResponses(value = {
     		@ApiResponse(code = 200, message="utilisateur supprimé")
