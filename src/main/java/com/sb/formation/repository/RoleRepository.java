@@ -12,4 +12,6 @@ import java.util.Optional;
 @CrossOrigin("*")
 public interface RoleRepository  extends JpaRepository<Role, Long> {
     Optional<Role> findByNom(ERole nom);
+    Boolean existsByNom(ERole nom);
+
 }
