@@ -22,7 +22,7 @@ import java.util.List;
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/domaine")
-@PreAuthorize("hasRole('ROLE_ADMIN')")
+@PreAuthorize("hasRole('ROLE_USER')")
 public class DomaineController {
 
     @Autowired

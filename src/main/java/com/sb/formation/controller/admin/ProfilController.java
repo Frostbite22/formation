@@ -19,7 +19,7 @@ import java.util.List;
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/profil")
-@PreAuthorize("hasRole('ROLE_ADMIN')")
+@PreAuthorize("hasRole('ROLE_USER')")
 public class ProfilController {
     @Autowired
     private ProfilServiceImpl profilService;

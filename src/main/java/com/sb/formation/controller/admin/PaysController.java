@@ -19,7 +19,7 @@ import java.util.List;
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/pays")
-@PreAuthorize("hasRole('ROLE_ADMIN')")
+@PreAuthorize("hasRole('ROLE_USER')")
 public class PaysController {
     @Autowired
     private PaysServiceImpl paysServiceImpl;

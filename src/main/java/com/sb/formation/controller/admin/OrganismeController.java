@@ -19,7 +19,7 @@ import java.util.List;
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/organisme")
-@PreAuthorize("hasRole('ROLE_ADMIN')")
+@PreAuthorize("hasRole('ROLE_USER')")
 public class OrganismeController {
     @Autowired
     private OrganismeServiceImpl organismeService;
